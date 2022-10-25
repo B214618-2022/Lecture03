@@ -1,7 +1,7 @@
 #!/bin/bash
 
-grep -v "name" example_people_data.tsv | awk 'BEGIN{FS="\t" ;}
+awk 'BEGIN{FS="\t" ;}
     {
-        if(NF == 7)
+        if(NF == 7 && $1 != " " && $1 != "name")
             { print $0 ;}
-    }'
+    }' example_people_data.tsv 
